@@ -1,29 +1,30 @@
 import React from "react"
+import s from './Navbar.module.css'
 
 const Navbar = () => {
     return (
         <nav>
-            <div className='container'>
-                <div className='navBlock'>
-                    <div className='flexBlockSpaceBetween'>
-                        <div className='logoBlock'>
+            <div className={s.container}>
+                <div className={s.navBlock}>
+                    <div className={s.flexBlockSpaceBetween}>
+                        <div>
                             <h2>LOGO</h2>
                         </div>
-                        <div className='menuBlock'>
-                            <ul className='menu'>
-                                <li className='menuItem'>
+                        <div className={s.menuBlock}>
+                            <ul className={s.menu}>
+                                <li className={s.menuItem}>
                                     <a href='#'>Profile</a>
                                 </li>
-                                <li className='menuItem'>
+                                <li className={s.menuItem}>
                                     <a href='#'>Messages</a>
                                 </li>
-                                <li className='menuItem'>
+                                <li className={s.menuItem}>
                                     <a href='#'>News</a>
                                 </li>
-                                <li className='menuItem'>
+                                <li className={s.menuItem}>
                                     <a href='#'>Music</a>
                                 </li>
-                                <li className='menuItem'>
+                                <li className={s.menuItem}>
                                     <a href='#'>Settings</a>
                                 </li>
                             </ul>
@@ -32,7 +33,7 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
-    );
+    )
 }
 
 export default Navbar

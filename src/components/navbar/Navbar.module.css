@@ -6,20 +6,11 @@
     width: 1084px;
     margin: 0 auto;
 }
-.flexBlock{
-    display: flex;
-}
 .flexBlockSpaceBetween{
     display: flex;
     justify-content: space-between;
 }
 
-.headerBlock{
-    border-bottom: 2px solid lightgray;
-}
-.loginRegisterBlock{
-    padding-bottom: 3px;
-}
 
 .navBlock{
     padding: 15px 0 15px 0;
@@ -36,13 +27,4 @@
 .menuItem a{
     text-decoration: none;
     padding: 0 10px 0 10px;
-}
-
-.mainDescription{
-    background-color: rgb(154, 198, 241);
-}
-.ava img{
-    width: 250px;
-    height: 250px;
-    border-radius: 100%;
 }
