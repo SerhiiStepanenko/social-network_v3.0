@@ -25,6 +25,13 @@
     list-style-type: none;
 }
 .menuItem a{
+    color: #222222;
     text-decoration: none;
     padding: 0 10px 0 10px;
+}
+.menuItem a.activeLink{
+    color: gold;
+}
+.menuItem a:last-child{
+    padding: 0 0 0 10px;
 }
