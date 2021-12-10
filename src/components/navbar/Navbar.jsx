@@ -13,19 +13,19 @@ const Navbar = () => {
                         <div className={s.menuBlock}>
                             <ul className={s.menu}>
                                 <li className={s.menuItem}>
-                                    <a href='#'>Profile</a>
+                                    <a href='/'>Profile</a>
                                 </li>
                                 <li className={s.menuItem}>
-                                    <a href='#'>Messages</a>
+                                    <a href='/dialogs'>Messages</a>
                                 </li>
                                 <li className={s.menuItem}>
-                                    <a href='#'>News</a>
+                                    <a href='news'>News</a>
                                 </li>
                                 <li className={s.menuItem}>
-                                    <a href='#'>Music</a>
+                                    <a href='music'>Music</a>
                                 </li>
                                 <li className={s.menuItem}>
-                                    <a href='#'>Settings</a>
+                                    <a href='settings'>Settings</a>
                                 </li>
                             </ul>
                         </div>
