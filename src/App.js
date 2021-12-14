@@ -1,4 +1,4 @@
-import s from './App.module.css'
+// import s from './App.module.css'
 import React from "react"
 import Header from "./components/header/Header"
 import Navbar from "./components/navbar/Navbar"
@@ -16,8 +16,8 @@ const App = () => {
                 <Header/>
                 <Navbar/>
                 <Routes>
-                    <Route path='/dialogs' element={<Dialogs/>}/>
-                    <Route path='/' exact  element={<Profile/>}/>
+                    <Route path='/dialogs/*' element={<Dialogs/>}/>
+                    <Route path='/' element={<Profile/>}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/settings' element={<Settings/>}/>

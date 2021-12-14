@@ -16,7 +16,8 @@ const Navbar = () => {
                         <div className={s.menuBlock}>
                             <ul className={s.menu}>
                                 {menuItems.map(item => (
-                                    <li className={s.menuItem}>
+                                    <li className={s.menuItem}
+                                        key={item.id}>
                                         <NavLink to={item.to} className={navData => navData.isActive && s.activeLink}>
                                             {item.item}
                                         </NavLink>

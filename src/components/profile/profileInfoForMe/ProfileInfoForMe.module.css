@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 1084px;
+    margin: 0 auto;
+}
+.flexBlockSpaceBetween{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.mainDescription{
+    background-color: rgb(154, 198, 241);
+    height: 255px;
+    padding: 15px 0 15px 0;
+}
+.ava img{
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+}

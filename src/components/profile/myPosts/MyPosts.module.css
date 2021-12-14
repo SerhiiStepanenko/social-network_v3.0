@@ -6,3 +6,16 @@
     width: 1084px;
     margin: 0 auto;
 }
+
+.addPostBlock{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+    width: 700px;
+    padding: 10px 0 10px 0;
+}
+
+.button{
+    width: 200px;
+}
