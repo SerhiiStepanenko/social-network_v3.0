@@ -30,7 +30,8 @@
     padding: 0 10px 0 10px;
 }
 .menuItem a.activeLink{
-    color: gold;
+    color: rgb(30, 102, 234);
+    font-weight: bold;
 }
 .menuItem a:last-child{
     padding: 0 0 0 10px;

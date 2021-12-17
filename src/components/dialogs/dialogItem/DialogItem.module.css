@@ -15,21 +15,41 @@
 }
 
 .dialogItem{
-    border: 1px solid lightgrey;
-    width: 220px;
-    border-radius: 29px;
-    align-items: center;
+    width: 260px;
 }
 .dialogName{
+    display: block;
     text-decoration: none;
     color: #222222;
-    margin-top: 25px;
+    padding: 3px 0 3px 0;
 }
-.dialogNameBlock{
-    margin-left: 10px;
-}
-.dialogAva img{
+.dialogName img{
+    display: inline-block;
     width: 55px;
     height: 55px;
     border-radius: 50px;
+    vertical-align: middle;
+    margin: 0 7px 0 1px;
+}
+.dialogNameBlock{
+    cursor: pointer;
+    border: 1px solid lightgrey;
+    border-radius: 40px;
+    margin-bottom: 5px;
+}
+.dialogNameBlock :hover{
+    background-color: rgba(182, 206, 246, 0.3);
+    border-radius: 40px;
+}
+.dialogNameBlock :selected{
+    background-color: rgba(182, 206, 246, 0.3);
+    border-radius: 40px;
+}
+.dialogNameBlock :active{
+    background-color: rgba(182, 206, 246, 0.3);
+    border-radius: 40px;
+}
+.dialogNameBlock :focus{
+    background-color: rgba(182, 206, 246, 0.3);
+    border-radius: 40px;
 }

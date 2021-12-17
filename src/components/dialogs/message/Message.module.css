@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 1084px;
+    margin: 0 auto;
+}
+.flexBlock{
+    display: flex;
+}
+.flexBlockSpaceBetween{
+    display: flex;
+    justify-content: space-between;
+}
+

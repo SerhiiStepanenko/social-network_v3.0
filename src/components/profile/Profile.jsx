@@ -3,11 +3,11 @@ import React from "react"
 import MyPosts from "./myPosts/MyPosts";
 import ProfileInfoForMe from "./profileInfoForMe/ProfileInfoForMe";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <main>
             <ProfileInfoForMe/>
-            <MyPosts/>
+            <MyPosts posts={props.profilePage.posts}/>
         </main>
     )
 }

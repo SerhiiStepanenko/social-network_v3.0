@@ -1,21 +1,19 @@
 import React from "react"
 import s from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
-import {menuItems} from "./serverFile";
-import {logo} from "./serverFile";
 
-const Navbar = () => {
+const Navbar = (props) => {
     return (
         <nav>
             <div className={s.container}>
                 <div className={s.navBlock}>
                     <div className={s.flexBlockSpaceBetween}>
                         <div>
-                            <h2>{logo}</h2>
+                            <h2>{props.navBar.logo}</h2>
                         </div>
                         <div className={s.menuBlock}>
                             <ul className={s.menu}>
-                                {menuItems.map(item => (
+                                {props.navBar.menuItems.map(item => (
                                     <li className={s.menuItem}
                                         key={item.id}>
                                         <NavLink to={item.to} className={navData => navData.isActive && s.activeLink}>

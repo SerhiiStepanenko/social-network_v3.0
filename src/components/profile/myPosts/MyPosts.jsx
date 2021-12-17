@@ -1,8 +1,8 @@
 import React from "react"
 import s from './MyPosts.module.css'
-import Post from "./post/Post";
+import Post from "./post/Post"
 
-const MyPosts = () => {
+const MyPosts = (props) => {
     return (
         <div>
             <div className={s.container}>
@@ -13,7 +13,10 @@ const MyPosts = () => {
                     <textarea/>
                     <button className={s.button}>Add post</button>
                 </div>
-                <Post message='my message' likesCount='25'/>
+                {props.posts.map(post => (
+                    <Post post={post.post} likesCount={post.likesCount}/>
+                ))}
+
             </div>
         </div>
     )
