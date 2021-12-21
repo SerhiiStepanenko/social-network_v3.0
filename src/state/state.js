@@ -1,3 +1,5 @@
+import {renderTree} from "../index";
+
 export let state = {
     dialogsPage: {
         dialogsItem: [
@@ -49,4 +51,14 @@ export let state = {
             {id: '02', post: 'How are you?', likesCount: '8'}
         ]
     }
+}
+
+export let addPostText = (post) => {
+    let newPost = {
+        id: 2,
+        post: post,
+        likesCount: 0
+    }
+    state.profilePage.posts.unshift(newPost)
+    renderTree()
 }
