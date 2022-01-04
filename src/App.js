@@ -16,10 +16,14 @@ const App = (props) => {
                 <Header/>
                 <Navbar navBar={props.state.navBar}/>
                 <Routes>
-                    <Route path='/dialogs/*' element={<Dialogs dialogsPage={props.state.dialogsPage}/>}/>
+                    <Route path='/dialogs/*' element={
+                        <Dialogs dialogsPage={props.state.dialogsPage}
+                                 addMessagesText={props.addMessagesText}
+                                 updateNewMessageText={props.updateNewMessageText}/>}/>
                     <Route path='/' element={
                         <Profile profilePage={props.state.profilePage}
-                                 addPostText={props.addPostText}/>
+                                 addPostText={props.addPostText}
+                                 updateNewPostText={props.updateNewPostText}/>
                     }/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>

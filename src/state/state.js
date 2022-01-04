@@ -33,7 +33,8 @@ export let state = {
                 id: '02',
                 message: 'How are you?',
             },
-        ]
+        ],
+        newMessageText: ''
     },
     navBar: {
         menuItems: [
@@ -49,16 +50,37 @@ export let state = {
         posts: [
             {id: '01', post: 'Hi', likesCount: '12'},
             {id: '02', post: 'How are you?', likesCount: '8'}
-        ]
+        ],
+        newPostText: ''
     }
 }
 
-export let addPostText = (post) => {
+export let addPostText = () => {
     let newPost = {
         id: 2,
-        post: post,
+        post: state.profilePage.newPostText ,
         likesCount: 0
     }
     state.profilePage.posts.unshift(newPost)
+    state.profilePage.newPostText = ''
     renderTree()
 }
+export let updateNewPostText = (text) => {
+    state.profilePage.newPostText = text
+    renderTree()
+}
+
+export let addMessagesText = () => {
+    let newMessage = {
+        id: 3,
+        message: state.dialogsPage.newMessageText,
+    }
+    state.dialogsPage.message.push(newMessage)
+    state.dialogsPage.newMessageText = ''
+    renderTree()
+}
+export let updateNewMessageText = (text) => {
+    state.dialogsPage.newMessageText = text
+    renderTree()
+}
+

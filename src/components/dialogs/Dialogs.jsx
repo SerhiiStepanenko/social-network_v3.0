@@ -6,9 +6,11 @@ import Message from "./message/Message";
 const Dialogs = (props) => {
     let newMessageElement = React.createRef()
     let addMessage = () =>{
+        props.addMessagesText()
+    }
+    let onMessageChange = () => {
         let text = newMessageElement.current.value
-        newMessageElement.current.value = ''
-        alert(text)
+        props.updateNewMessageText(text)
     }
     return (
         <div className={s.container}>
@@ -18,7 +20,9 @@ const Dialogs = (props) => {
                         <Message message={message.message}/>
                     ))}
                     <div>
-                        <textarea ref={newMessageElement}/>
+                        <textarea ref={newMessageElement}
+                                  onChange={onMessageChange}
+                                  value={props.dialogsPage.newMessageText}/>
                         <button className={s.button}
                                 onClick={addMessage}>
                             Add post
