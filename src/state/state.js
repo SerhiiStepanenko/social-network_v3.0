@@ -57,7 +57,11 @@ let store = {
         return this._state
     },
     _renderTree() {},
-    addPostText() {
+    subscribe(observer) {
+        this._renderTree = observer
+    },
+
+    _addPostText() {
         let newPost = {
             id: 2,
             post: this._state.profilePage.newPostText ,
@@ -67,11 +71,12 @@ let store = {
         this._state.profilePage.newPostText = ''
         this._renderTree(this._state)
     },
-    updateNewPostText(text) {
+    _updateNewPostText(text) {
         this._state.profilePage.newPostText = text
         this._renderTree(this._state)
     },
-    addMessagesText() {
+
+    _addMessagesText() {
         let newMessage = {
             id: 3,
             message: this._state.dialogsPage.newMessageText,
@@ -80,12 +85,22 @@ let store = {
         this._state.dialogsPage.newMessageText = ''
         this._renderTree(this._state)
     },
-    updateNewMessageText(text) {
+    _updateNewMessageText(text) {
         this._state.dialogsPage.newMessageText = text
         this._renderTree(this._state)
     },
-    subscribe(observer) {
-        this._renderTree = observer
+
+
+    dispatch(action){
+        if(action.type === 'ADD-POST-TEXT'){
+            this._addPostText()
+        }else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+            this._updateNewPostText(action.text)
+        }else if (action.type === 'ADD-MESSAGES-TEXT'){
+            this._addMessagesText()
+        }else if(action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
+            this._updateNewMessageText(action.text)
+        }
     }
 }
 

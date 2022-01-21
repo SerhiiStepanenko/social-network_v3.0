@@ -8,10 +8,7 @@ export let renderTree = (state) =>{
     ReactDOM.render (
         <React.StrictMode>
             <App state={state}
-                 addPostText={store.addPostText.bind(store)}
-                 updateNewPostText={store.updateNewPostText.bind(store)}
-                 addMessagesText={store.addMessagesText.bind(store)}
-                 updateNewMessageText={store.updateNewMessageText.bind(store)}/>
+                 dispatch={store.dispatch.bind(store)}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
