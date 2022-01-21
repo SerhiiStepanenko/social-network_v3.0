@@ -1,15 +1,16 @@
 import React from "react"
 import s from './MyPosts.module.css'
 import Post from "./post/Post"
+import {addPostTextAC, updateNewPostTextAC} from "../../../state/state";
 
 const MyPosts = (props) => {
     let newPostElement = React.createRef()
     let addPost = () => {
-        props.dispatch({type: 'ADD-POST-TEXT'})
+        props.dispatch(addPostTextAC())
     }
     let onPostChange = () =>{
         let text = newPostElement.current.value
-        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', text: text})
+        props.dispatch(updateNewPostTextAC(text))
     }
     return (
         <div>

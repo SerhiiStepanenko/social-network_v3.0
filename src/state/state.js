@@ -1,3 +1,8 @@
+const ADD_POST_TEXT = 'ADD-POST-TEXT'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const ADD_MESSAGES_TEXT = 'ADD-MESSAGES-TEXT'
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
+
 let store = {
     _state: {
         dialogsPage: {
@@ -92,17 +97,40 @@ let store = {
 
 
     dispatch(action){
-        if(action.type === 'ADD-POST-TEXT'){
+        if(action.type === ADD_POST_TEXT){
             this._addPostText()
-        }else if (action.type === 'UPDATE-NEW-POST-TEXT'){
-            this._updateNewPostText(action.text)
-        }else if (action.type === 'ADD-MESSAGES-TEXT'){
+        }else if (action.type === UPDATE_NEW_POST_TEXT){
+            this._updateNewPostText(action.post)
+        }else if (action.type === ADD_MESSAGES_TEXT){
             this._addMessagesText()
-        }else if(action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
-            this._updateNewMessageText(action.text)
+        }else if(action.type === UPDATE_NEW_MESSAGE_TEXT){
+            this._updateNewMessageText(action.message)
         }
     }
 }
 
+export let addPostTextAC = () =>{
+    return{
+        type: ADD_POST_TEXT
+    }
+}
+export let updateNewPostTextAC = (text) =>{
+    return{
+        type:UPDATE_NEW_POST_TEXT,
+        post: text
+    }
+}
+
+export let addMessagesTextAC = () =>{
+    return{
+        type: ADD_MESSAGES_TEXT
+    }
+}
+export let updateNewMessageTextAC = (text) =>{
+    return{
+        type:UPDATE_NEW_MESSAGE_TEXT,
+        message: text
+    }
+}
 export default store
 

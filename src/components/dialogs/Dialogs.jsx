@@ -2,15 +2,16 @@ import React from "react"
 import s from './Dialogs.module.css'
 import DialogItem from "./dialogItem/DialogItem";
 import Message from "./message/Message";
+import {addMessagesTextAC, updateNewMessageTextAC} from "../../state/state";
 
 const Dialogs = (props) => {
     let newMessageElement = React.createRef()
     let addMessage = () =>{
-        props.dispatch({type: 'ADD-MESSAGES-TEXT'})
+        props.dispatch(addMessagesTextAC())
     }
     let onMessageChange = () => {
         let text = newMessageElement.current.value
-        props.dispatch({type: 'UPDATE-NEW-MESSAGE-TEXT', text: text})
+        props.dispatch(updateNewMessageTextAC(text))
     }
     return (
         <div className={s.container}>
