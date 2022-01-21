@@ -5,7 +5,7 @@ import App from './App';
 import store from './state/state'
 
 export let renderTree = (state) =>{
-    ReactDOM.render(
+    ReactDOM.render (
         <React.StrictMode>
             <App state={state}
                  addPostText={store.addPostText.bind(store)}
