@@ -2,21 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {addMessagesText, state, updateNewMessageText, updateNewPostText} from "./state/state";
-import {addPostText} from './state/state'
+import store from './state/state'
 
-
-export let renderTree = () =>{
+export let renderTree = (state) =>{
     ReactDOM.render(
         <React.StrictMode>
             <App state={state}
-                 addPostText={addPostText}
-                 updateNewPostText={updateNewPostText}
-                 addMessagesText={addMessagesText}
-                 updateNewMessageText={updateNewMessageText}/>
+                 addPostText={store.addPostText.bind(store)}
+                 updateNewPostText={store.updateNewPostText.bind(store)}
+                 addMessagesText={store.addMessagesText.bind(store)}
+                 updateNewMessageText={store.updateNewMessageText.bind(store)}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
 
-renderTree()
+renderTree(store.getState())
+
+store.subscribe(renderTree)
