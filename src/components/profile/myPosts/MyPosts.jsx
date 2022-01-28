@@ -1,7 +1,7 @@
 import React from "react"
 import s from './MyPosts.module.css'
 import Post from "./post/Post"
-import {addPostTextAC, updateNewPostTextAC} from "../../../state/state";
+import {addPostTextAC, updateNewPostTextAC} from "../../../state/profile-reducer";
 
 const MyPosts = (props) => {
     let newPostElement = React.createRef()

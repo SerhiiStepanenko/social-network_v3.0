@@ -2,7 +2,7 @@ import React from "react"
 import s from './Dialogs.module.css'
 import DialogItem from "./dialogItem/DialogItem";
 import Message from "./message/Message";
-import {addMessagesTextAC, updateNewMessageTextAC} from "../../state/state";
+import {addMessagesTextAC, updateNewMessageTextAC} from "../../state/dialogs-reducer";
 
 const Dialogs = (props) => {
     let newMessageElement = React.createRef()

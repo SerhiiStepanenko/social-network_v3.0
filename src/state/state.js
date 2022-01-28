@@ -1,7 +1,5 @@
-const ADD_POST_TEXT = 'ADD-POST-TEXT'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-const ADD_MESSAGES_TEXT = 'ADD-MESSAGES-TEXT'
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
 
 let store = {
     _state: {
@@ -66,71 +64,14 @@ let store = {
         this._renderTree = observer
     },
 
-    _addPostText() {
-        let newPost = {
-            id: 2,
-            post: this._state.profilePage.newPostText ,
-            likesCount: 0
-        }
-        this._state.profilePage.posts.unshift(newPost)
-        this._state.profilePage.newPostText = ''
-        this._renderTree(this._state)
-    },
-    _updateNewPostText(text) {
-        this._state.profilePage.newPostText = text
-        this._renderTree(this._state)
-    },
-
-    _addMessagesText() {
-        let newMessage = {
-            id: 3,
-            message: this._state.dialogsPage.newMessageText,
-        }
-        this._state.dialogsPage.message.push(newMessage)
-        this._state.dialogsPage.newMessageText = ''
-        this._renderTree(this._state)
-    },
-    _updateNewMessageText(text) {
-        this._state.dialogsPage.newMessageText = text
-        this._renderTree(this._state)
-    },
-
 
     dispatch(action){
-        if(action.type === ADD_POST_TEXT){
-            this._addPostText()
-        }else if (action.type === UPDATE_NEW_POST_TEXT){
-            this._updateNewPostText(action.post)
-        }else if (action.type === ADD_MESSAGES_TEXT){
-            this._addMessagesText()
-        }else if(action.type === UPDATE_NEW_MESSAGE_TEXT){
-            this._updateNewMessageText(action.message)
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+
+        this._renderTree(this._state)
     }
 }
 
-export let addPostTextAC = () =>{
-    return{
-        type: ADD_POST_TEXT
-    }
-}
-export let updateNewPostTextAC = (text) =>{
-    return{
-        type:UPDATE_NEW_POST_TEXT,
-        post: text
-    }
-}
-
-export let addMessagesTextAC = () =>{
-    return{
-        type: ADD_MESSAGES_TEXT
-    }
-}
-export let updateNewMessageTextAC = (text) =>{
-    return{
-        type:UPDATE_NEW_MESSAGE_TEXT,
-        message: text
-    }
-}
 export default store
 
