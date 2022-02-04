@@ -2,16 +2,14 @@ import React from "react"
 import s from './Dialogs.module.css'
 import DialogItem from "./dialogItem/DialogItem";
 import Message from "./message/Message";
-import {addMessagesTextAC, updateNewMessageTextAC} from "../../state/dialogs-reducer";
 
 const Dialogs = (props) => {
-    let newMessageElement = React.createRef()
-    let addMessage = () =>{
-        props.dispatch(addMessagesTextAC())
+    let addMessage = () => {
+        props.onAddMessage()
     }
-    let onMessageChange = () => {
-        let text = newMessageElement.current.value
-        props.dispatch(updateNewMessageTextAC(text))
+    let onMessageChange = (e) => {
+        let text = e.target.value
+        props.updateNewMessage(text)
     }
     return (
         <div className={s.container}>
@@ -21,8 +19,7 @@ const Dialogs = (props) => {
                         <Message message={message.message}/>
                     ))}
                     <div>
-                        <textarea ref={newMessageElement}
-                                  onChange={onMessageChange}
+                        <textarea onChange={onMessageChange}
                                   value={props.dialogsPage.newMessageText}/>
                         <button className={s.button}
                                 onClick={addMessage}>
@@ -30,7 +27,6 @@ const Dialogs = (props) => {
                         </button>
                     </div>
                 </div>
-
                 <div className={s.dialogs}>
                     {props.dialogsPage.dialogsItem.map(user => (
                         <DialogItem key={user.id}

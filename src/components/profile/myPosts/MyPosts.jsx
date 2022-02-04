@@ -1,16 +1,14 @@
 import React from "react"
 import s from './MyPosts.module.css'
 import Post from "./post/Post"
-import {addPostTextAC, updateNewPostTextAC} from "../../../state/profile-reducer";
 
 const MyPosts = (props) => {
-    let newPostElement = React.createRef()
     let addPost = () => {
-        props.dispatch(addPostTextAC())
+        props.onAddPost()
     }
-    let onPostChange = () =>{
-        let text = newPostElement.current.value
-        props.dispatch(updateNewPostTextAC(text))
+    let onPostChange = (e) =>{
+        let text = e.target.value
+        props.updateNewPost(text)
     }
     return (
         <div>
@@ -20,7 +18,6 @@ const MyPosts = (props) => {
                         My posts
                     </h4>
                     <textarea value={props.newPostText}
-                              ref={newPostElement}
                               onChange={onPostChange}/>
                     <button className={s.button}
                             onClick={addPost}>
@@ -30,7 +27,6 @@ const MyPosts = (props) => {
                 {props.posts.map(post => (
                     <Post post={post.post} likesCount={post.likesCount}/>
                 ))}
-
             </div>
         </div>
     )

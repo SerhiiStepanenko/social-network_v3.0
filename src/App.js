@@ -3,13 +3,14 @@ import React from "react"
 import Header from "./components/header/Header"
 import Navbar from "./components/navbar/Navbar"
 import Profile from "./components/profile/Profile"
-import Dialogs from "./components/dialogs/Dialogs"
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import News from "./components/news/News";
 import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
+import DialogsContainer from "./components/dialogs/DialogsContainer";
 
 const App = (props) => {
+    debugger
     return (
         <div>
             <BrowserRouter>
@@ -17,11 +18,9 @@ const App = (props) => {
                 <Navbar navBar={props.state.navBar}/>
                 <Routes>
                     <Route path='/dialogs/*' element={
-                        <Dialogs dialogsPage={props.state.dialogsPage}
-                                 dispatch={props.dispatch}/>}/>
+                        <DialogsContainer store={props.store}/>}/>
                     <Route path='/' element={
-                        <Profile profilePage={props.state.profilePage}
-                                 dispatch={props.dispatch}/>}/>
+                        <Profile store={props.store}/>}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/settings' element={<Settings/>}/>
